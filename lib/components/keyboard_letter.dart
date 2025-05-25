@@ -12,34 +12,28 @@ class KeyboardLetter extends StatelessWidget {
     this.status = LetterStatus.unknown,
   });
 
-  void printLetter() {
-    print(letter);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsetsGeometry.all(1),
       child: Material(
-        child: Container(
-          child: Ink(
-            decoration: BoxDecoration(
-              color: status.colour,
-              borderRadius: BorderRadius.circular(4),
-            ),
+        child: Ink(
+          decoration: BoxDecoration(
+            color: status.colour,
+            borderRadius: BorderRadius.circular(4),
+          ),
 
-            child: InkWell(
-              borderRadius: BorderRadius.circular(10),
-              onTap: onLetterClick,
-              child: Container(
-                padding: EdgeInsetsGeometry.all(10),
-                child: Text(
-                  letter,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 20,
-                  ),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(10),
+            onTap: onLetterClick,
+            child: Container(
+              padding: EdgeInsetsGeometry.all(10),
+              child: Text(
+                letter,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 20,
                 ),
               ),
             ),

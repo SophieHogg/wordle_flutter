@@ -1,21 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:wordle/components/guess.dart';
 
-import '../letter_status.dart';
-
 class FutureGuesses extends StatelessWidget {
   final int guessesRemaining;
 
   const FutureGuesses({required this.guessesRemaining});
 
-  static const GuessLetterType _emptyGuessLetter = GuessLetterType(
-    '',
-    LetterStatus.unknown,
-  );
-
   static final List<GuessLetterType> _emptyGuess = List.filled(
     5,
-    _emptyGuessLetter,
+    Guess.emptyGuessLetter,
   );
 
   @override

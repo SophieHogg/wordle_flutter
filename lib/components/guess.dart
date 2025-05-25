@@ -16,15 +16,15 @@ class Guess extends StatelessWidget {
 
   const Guess({required this.guessLetters});
 
-  static const GuessLetterType emptyGuess = GuessLetterType(
+  static const GuessLetterType emptyGuessLetter = GuessLetterType(
     '',
     LetterStatus.unknown,
   );
 
-  List<GuessLetterType> get interimGuessLetters {
+  List<GuessLetterType> get _interimGuessLetters {
     return List.generate(
       5,
-      (i) => guessLetters.elementAtOrNull(i) ?? emptyGuess,
+      (i) => guessLetters.elementAtOrNull(i) ?? emptyGuessLetter,
     );
   }
 
@@ -34,7 +34,7 @@ class Guess extends StatelessWidget {
       spacing: 4,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        for (final guessLetter in interimGuessLetters)
+        for (final guessLetter in _interimGuessLetters)
           Expanded(
             child: GuessLetter(
               letter: guessLetter.letter,

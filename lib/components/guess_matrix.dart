@@ -6,7 +6,7 @@ class GuessMatrix extends StatelessWidget {
 
   const GuessMatrix({required this.guessHistory});
 
-  List<List<Color>> get matrixColours {
+  List<List<Color>> get _matrixColours {
     return guessHistory.map((guess) {
       return guess.map((guessLetter) {
         return guessLetter.status.colour;
@@ -18,7 +18,7 @@ class GuessMatrix extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        for (final guess in matrixColours)
+        for (final guess in _matrixColours)
           Row(
             children: [
               for (final letterColour in guess)

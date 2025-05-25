@@ -7,7 +7,7 @@ class GuessLetter extends StatelessWidget {
 
   const GuessLetter({this.letter = '', this.status = LetterStatus.unknown});
 
-  Color get guessLetterBackgroundColour {
+  Color get _guessLetterBackgroundColour {
     if (letter == '') {
       return Colors.black45;
     } else {
@@ -22,7 +22,7 @@ class GuessLetter extends StatelessWidget {
       child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(4)),
-          color: guessLetterBackgroundColour,
+          color: _guessLetterBackgroundColour,
         ),
         child: Container(
           padding: EdgeInsetsGeometry.all(12),

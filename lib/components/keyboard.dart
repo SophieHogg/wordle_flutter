@@ -19,7 +19,7 @@ class Keyboard extends StatelessWidget {
     this.partialLetters = const [],
   });
 
-  static const firstRowLetters = [
+  static const _firstRowLetters = [
     'Q',
     'W',
     'E',
@@ -31,8 +31,18 @@ class Keyboard extends StatelessWidget {
     'O',
     'P',
   ];
-  static const secondRowLetters = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'];
-  static const thirdRowLetters = ['Z', 'X', 'C', 'V', 'B', 'N', 'M'];
+  static const _secondRowLetters = [
+    'A',
+    'S',
+    'D',
+    'F',
+    'G',
+    'H',
+    'J',
+    'K',
+    'L',
+  ];
+  static const _thirdRowLetters = ['Z', 'X', 'C', 'V', 'B', 'N', 'M'];
 
   LetterStatus findLetterStatus(String letter) {
     if (validLetters.contains(letter)) return LetterStatus.valid;
@@ -48,7 +58,7 @@ class Keyboard extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            for (final letter in firstRowLetters)
+            for (final letter in _firstRowLetters)
               KeyboardLetter(
                 letter: letter,
                 status: findLetterStatus(letter),
@@ -59,7 +69,7 @@ class Keyboard extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            for (final letter in secondRowLetters)
+            for (final letter in _secondRowLetters)
               KeyboardLetter(
                 letter: letter,
                 status: findLetterStatus(letter),
@@ -75,7 +85,7 @@ class Keyboard extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            for (final letter in thirdRowLetters)
+            for (final letter in _thirdRowLetters)
               KeyboardLetter(
                 letter: letter,
                 status: findLetterStatus(letter),
