@@ -29,6 +29,7 @@ class SuccessDialog extends StatelessWidget {
         children: [
           Text(
             'You guessed the word "$correctGuess" in $guessesTaken $guessWord.',
+            style: TextStyle(fontSize: 16),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -42,7 +43,7 @@ class SuccessDialog extends StatelessWidget {
           onPressed: () {
             onRetry();
           },
-          child: const Text('Play again'),
+          child: const Text('Play again', style: TextStyle(fontSize: 18)),
         ),
       ],
     );

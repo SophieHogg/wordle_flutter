@@ -18,18 +18,30 @@ class KeyboardLetter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: status.colour,
-      child: InkWell(
-        onTap: onLetterClick,
+    return Container(
+      padding: EdgeInsetsGeometry.all(1),
+      child: Material(
         child: Container(
-          padding: EdgeInsetsGeometry.all(12),
-          child: Text(
-            letter,
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w800,
-              fontSize: 20,
+          child: Ink(
+            decoration: BoxDecoration(
+              color: status.colour,
+              borderRadius: BorderRadius.circular(4),
+            ),
+
+            child: InkWell(
+              borderRadius: BorderRadius.circular(10),
+              onTap: onLetterClick,
+              child: Container(
+                padding: EdgeInsetsGeometry.all(10),
+                child: Text(
+                  letter,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
             ),
           ),
         ),

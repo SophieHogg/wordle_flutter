@@ -350,9 +350,14 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        elevation: 10,
+        highlightElevation: 0,
+        foregroundColor: Colors.blue.shade800,
+        backgroundColor: Colors.blue.shade100,
+        splashColor: Colors.blue.shade200,
         onPressed: restart,
-        tooltip: 'Increment',
-        child: const Icon(Icons.restart_alt),
+        tooltip: 'Restart',
+        child: const Icon(Icons.restart_alt, size: 36),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }

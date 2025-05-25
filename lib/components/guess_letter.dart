@@ -19,8 +19,11 @@ class GuessLetter extends StatelessWidget {
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 1,
-      child: Material(
-        color: guessLetterBackgroundColour,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(4)),
+          color: guessLetterBackgroundColour,
+        ),
         child: Container(
           padding: EdgeInsetsGeometry.all(12),
           child: Center(

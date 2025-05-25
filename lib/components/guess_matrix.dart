@@ -21,8 +21,8 @@ class GuessMatrix extends StatelessWidget {
         for (final guess in matrixColours)
           Row(
             children: [
-              for (final letter in guess)
-                Icon(Icons.square, size: 28, color: letter),
+              for (final letterColour in guess)
+                Icon(Icons.square, size: 28, color: letterColour),
             ],
           ),
       ],

@@ -1,16 +1,17 @@
-# wordle
+# Wordle Mobile App
 
-A new Flutter project.
+A mobile app to play Wordle, written with the Flutter framework for Dart.
 
-## Getting Started
+## Achievements
 
-This project is a starting point for a Flutter application.
+- Created Wordle App
+- Created retry mechanic
+- Created emoji matrix on win / lose with accompanying dialogs.
+- Added error messages
 
-A few resources to get you started if this is your first Flutter project:
+## To Do
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Add riverpod (or other state management) to simplify communication of concepts across components
+- Add tests using Flutter test
+- Refactor
+- Stylistic changes
