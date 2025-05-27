@@ -1,11 +1,11 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:wordle/components/dialogs/failure_dialog.dart';
+import 'package:wordle/components/dialogs/success_dialog.dart';
 import 'package:wordle/components/future_guesses.dart';
 import 'package:wordle/components/guess.dart';
 import 'package:wordle/components/guess_history.dart';
-import 'package:wordle/components/guess_matrix.dart';
 import 'package:wordle/components/keyboard.dart';
-import 'package:wordle/components/success_dialog.dart';
 import 'package:wordle/letter_status.dart';
 import 'package:wordle/utils/valid_words.dart';
 
@@ -212,36 +212,16 @@ class _MyHomePageState extends State<MyHomePage> {
     return showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Woahhh ☹️'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            spacing: 4.0,
-            children: [
-              Text(
-                'You failed to guess the word "$currentWordAsString" in 6 guesses',
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [GuessMatrix(guessHistory: allGuesses)],
-              ),
-            ],
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text('Close'),
-            ),
-            TextButton(
-              onPressed: () {
-                restart();
-                Navigator.pop(context);
-              },
-              child: Text('Try again!'),
-            ),
-          ],
+        return FailureDialog(
+          onRetry: () {
+            restart();
+            Navigator.pop(context);
+          },
+          onClose: () {
+            Navigator.pop(context);
+          },
+          correctWord: currentWordAsString,
+          guessHistory: allGuesses,
         );
       },
     );
@@ -255,6 +235,9 @@ class _MyHomePageState extends State<MyHomePage> {
         return SuccessDialog(
           onRetry: () {
             restart();
+            Navigator.pop(context);
+          },
+          onClose: () {
             Navigator.pop(context);
           },
           correctGuess: currentGuessAsString,
@@ -330,7 +313,8 @@ class _MyHomePageState extends State<MyHomePage> {
             spacing: 4,
             children: <Widget>[
               if (allGuesses.isNotEmpty) GuessHistory(guessHistory: allGuesses),
-              if (canInputGuesses) Guess(guessLetters: currentGuess),
+              if (canInputGuesses)
+                Guess(guessLetters: currentGuess, isCurrent: true),
               if (guessesRemaining > 0)
                 FutureGuesses(guessesRemaining: guessesRemaining),
               if (canInputGuesses)
