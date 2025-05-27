@@ -13,8 +13,9 @@ typedef GuessType = List<GuessLetterType>;
 
 class Guess extends StatelessWidget {
   final List<GuessLetterType> guessLetters;
+  final bool isCurrent;
 
-  const Guess({required this.guessLetters});
+  const Guess({required this.guessLetters, this.isCurrent = false});
 
   static const GuessLetterType emptyGuessLetter = GuessLetterType(
     '',
@@ -39,6 +40,7 @@ class Guess extends StatelessWidget {
             child: GuessLetter(
               letter: guessLetter.letter,
               status: guessLetter.status,
+              isCurrent: isCurrent,
             ),
           ),
       ],
