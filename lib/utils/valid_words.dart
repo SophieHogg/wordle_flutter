@@ -5316,7 +5316,6 @@ const words = [
   "gouts",
   "mynas",
   "mazer",
-  "kikes",
   "oxeye",
   "stoup",
   "jujus",

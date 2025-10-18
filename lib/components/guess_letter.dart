@@ -45,7 +45,7 @@ class GuessLetter extends StatelessWidget {
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w800,
-              fontSize: 36,
+              fontSize: 30,
             ),
           ),
         ),

@@ -27,7 +27,7 @@ class KeyboardLetter extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             onTap: onLetterClick,
             child: Container(
-              padding: EdgeInsetsGeometry.all(10),
+              padding: EdgeInsetsGeometry.all(8),
               child: Text(
                 letter,
                 style: TextStyle(
