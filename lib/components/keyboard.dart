@@ -53,52 +53,54 @@ class Keyboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            for (final letter in _firstRowLetters)
+    return FittedBox(
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              for (final letter in _firstRowLetters)
+                KeyboardLetter(
+                  letter: letter,
+                  status: findLetterStatus(letter),
+                  onLetterClick: () => onKeyboardClick(letter),
+                ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              for (final letter in _secondRowLetters)
+                KeyboardLetter(
+                  letter: letter,
+                  status: findLetterStatus(letter),
+                  onLetterClick: () => onKeyboardClick(letter),
+                ),
               KeyboardLetter(
-                letter: letter,
-                status: findLetterStatus(letter),
-                onLetterClick: () => onKeyboardClick(letter),
+                letter: '<-',
+                status: LetterStatus.unknown,
+                onLetterClick: onBackspace,
               ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            for (final letter in _secondRowLetters)
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              for (final letter in _thirdRowLetters)
+                KeyboardLetter(
+                  letter: letter,
+                  status: findLetterStatus(letter),
+                  onLetterClick: () => onKeyboardClick(letter),
+                ),
               KeyboardLetter(
-                letter: letter,
-                status: findLetterStatus(letter),
-                onLetterClick: () => onKeyboardClick(letter),
+                letter: 'Enter',
+                status: LetterStatus.unknown,
+                onLetterClick: onEnter,
               ),
-            KeyboardLetter(
-              letter: '<-',
-              status: LetterStatus.unknown,
-              onLetterClick: onBackspace,
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            for (final letter in _thirdRowLetters)
-              KeyboardLetter(
-                letter: letter,
-                status: findLetterStatus(letter),
-                onLetterClick: () => onKeyboardClick(letter),
-              ),
-            KeyboardLetter(
-              letter: 'Enter',
-              status: LetterStatus.unknown,
-              onLetterClick: onEnter,
-            ),
-          ],
-        ),
-      ],
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
